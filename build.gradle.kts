@@ -1,6 +1,9 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     kotlin("jvm") version "1.9.0"
     application
+    id("com.github.johnrengelman.shadow") version "7.1.0"
 }
 
 group = "org.example"
@@ -24,4 +27,8 @@ kotlin {
 
 application {
     mainClass.set("MainKt")
+}
+
+tasks.withType<ShadowJar> {
+    archiveFileName.set("app.jar")
 }
